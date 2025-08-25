@@ -1,0 +1,318 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: radial-gradient(circle,rgba(135, 135, 135, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+  .header{
+    border-radius: 23px;
+  display: flex;
+}
+  
+
+
+/* Contenedor principal */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Barra de búsqueda */
+.search-form {
+  display: flex;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.search-button {
+  background-color: #4a89dc;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #3a70c2;
+}
+
+/* Grid de contactos */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Tarjetas de contacto */
+.contact-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-top: 4px solid #4a89dc;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card h3 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-card p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.contact-card p:nth-of-type(3) { /* Unidad Org */
+  font-weight: bold;
+  color: #2980b9;
+}
+
+.contact-card p:nth-of-type(4) { /* Cargo */
+  font-style: italic;
+  color: #27ae60;
+}
+
+/* Botón de emergencia */
+button {
+  background-color: #3c5ee7;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 20px 0;
+  transition: all 0.3s;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #2b48bc;
+  transform: translateY(-2px);
+}
+
+/* Sección de emergencia */
+.emergency-grid {
+  margin: 30px 0;
+  width: 30%;
+  padding: 20px;
+  background-color: #fff8f8;
+  border-radius: 10px;
+  border: 1px solid #ffdddd;
+  grid-column: 1 / -1;
+}
+
+.emergency-grid h2 {
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.emergency-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.1);
+  border-left: 4px solid #e74c3c;
+}
+
+.emergency-card h3 {
+  color: #2b48bc;
+  margin-top: 0;
+}
+
+/* Mensaje sin resultados */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Efecto para tarjeta seleccionada */
+.contact-card.selected {
+  background-color: #f0f7ff;
+  border-top: 4px solid #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-form {
+    flex-direction: column;
+  }
+  
+  .search-input {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .search-button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el encabezado */
+.header {
+
+  background: linear-gradient(357deg,rgba(255, 255, 255, 1) 0%, rgba(69, 139, 204, 1) 100%);
+/* Estilos para el encabezado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 23px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-title {
+  margin: 0;
+  color: #0055a5;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.header p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0055a5;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.header img {
+  border-radius: 30px;
+  height: 60px;
+  width: auto;
+}
+
+.search-form {
+  margin-left: auto;
+  width: 40%;
+  min-width: 300px;
+}
+
+
+
+
+
+
+
+
+
+.container-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: flex-start; /* Mantiene la posición vertical actual */
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  padding-top: 50px; /* Espacio desde la parte superior */
+}
+
+
+#modal {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 80vh; /* Altura máxima con scroll */
+}
+
+/* Botón de cerrar mejorado */
+#btn-cerrar-modal {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btn-cerrar-modal:hover {
+  background-color: #c0392b;
+}

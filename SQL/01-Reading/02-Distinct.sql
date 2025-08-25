@@ -1,0 +1,2 @@
+SELECT DISTINCT * FROM user; --devuelve todo los campos q sean diferentes
+SELECT DISTINCT age FROM user; --devuelve todo las edades q sean diferentes por ejemplo si hay dos con 15 devuelve un solo 15 y el primer valor 
