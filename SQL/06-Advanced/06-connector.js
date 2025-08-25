@@ -1,4 +1,3 @@
-debugger; 
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
@@ -9,7 +8,9 @@ const connection = mysql.createConnection({
   database: 'hello_mysql'
 });
 let usuarios = [];
+
 connection.query('SELECT * FROM user',(error, results)=>{
+  
   if (error) throw error;
   usuarios= results;
   console.log(results);

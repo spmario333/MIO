@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { SearchContact } from './SearchContact';
-import { contact } from '../data/contact';
+import { contact } from '../data/contact.js';
 
 
 //componente de contactos 
