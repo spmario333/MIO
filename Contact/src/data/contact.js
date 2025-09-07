@@ -12,7 +12,7 @@ export let contact = [];
 connection.query('SELECT * FROM contacts',(error, results)=>{
   
   if (error) throw error;
-  contact= results;
+  contact= [...results];
   console.log(contact);
   connection.end();
 });
