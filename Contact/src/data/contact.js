@@ -1,19 +1,19 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2';
 
 const connection = mysql.createConnection({
   host: '127.0.0.1',
   port: '3306',
   user: 'root',
   password: 'root1234',
-  database: 'project'
+  database: 'contacts'
 });
 export let contact = [];
 
-connection.query('SELECT * FROM contacts',(error, results)=>{
+connection.query('SELECT * FROM contact',(error, results)=>{
   
   if (error) throw error;
   contact= [...results];
-  console.log(contact);
+  console.log(contact[0].name);
   connection.end();
 });
 
