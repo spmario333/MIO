@@ -7,11 +7,29 @@ const connection = mysql.createConnection({
   password: 'root1234',
   database: 'contacts'
 });
-export let contact = [];
+export let contact = [{
+      id: 0,
+      name: '',
+      center: '',
+      firstNum: '',
+      secondNum:'',
+      position: '',
+      user: '',
+
+
+},
+];
 
 connection.query('SELECT * FROM contact',(error, results)=>{
   
   if (error) throw error;
+  // results.forEach(
+  //   ()=>{
+  //     contact[0].id = results[0].id;
+  //     contact[0].name = results[0].name;
+  //   }
+  // )
+  // console.log(contact)
   contact= [...results];
   console.log(contact[0].name);
   connection.end();
