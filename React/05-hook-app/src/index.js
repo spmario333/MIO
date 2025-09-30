@@ -1,6 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Memorize } from './components/06-memos/Memorize';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { Padre } from './components/07-tarea-memo/Padre';
+// import { CallBackHook } from './components/06-memos/CallBackHook';
+// import { MemoHook } from './components/06-memos/MemoHooks';
+// import { Memorize } from './components/06-memos/Memorize';
 // import { Layout } from './components/05-useLayoutEffect/Layout';
 //import { FocusScreen } from './components/04-useRef/FocusScreen';
 //import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
@@ -9,11 +12,13 @@ import { Memorize } from './components/06-memos/Memorize';
 //import { SimpleForm } from './components/02-useEffect/simpleForm';
 //import { FormWithCustomHooks } from './components/02-useEffect/FormWithCustomHooks';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
   
-    <Memorize/>
+//     <Padre/>
  
-);
+// );
+
+import './components/08-useReducer/intro-reducer'
 
 
