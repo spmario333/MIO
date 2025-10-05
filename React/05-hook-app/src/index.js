@@ -1,5 +1,7 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { MainApp } from './components/09-useContext/MainApp';
+// import { TodoApp } from './components/08-useReducer/TodoApp';
 // import { Padre } from './components/07-tarea-memo/Padre';
 // import { CallBackHook } from './components/06-memos/CallBackHook';
 // import { MemoHook } from './components/06-memos/MemoHooks';
@@ -12,13 +14,13 @@
 //import { SimpleForm } from './components/02-useEffect/simpleForm';
 //import { FormWithCustomHooks } from './components/02-useEffect/FormWithCustomHooks';
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   
-//     <Padre/>
+    <MainApp/>
  
-// );
+);
 
-import './components/08-useReducer/intro-reducer'
+// import './components/08-useReducer/intro-reducer'
 
 
