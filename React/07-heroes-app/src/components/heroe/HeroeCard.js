@@ -11,7 +11,7 @@ export const HeroeCard = ({
     characters
 }) => {
   return (
-    <div className='col'>
+    <div className='col animate__animated animate__pulse'>
         
         <div className='card'>
             
