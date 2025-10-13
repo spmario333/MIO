@@ -15,14 +15,14 @@ export const HeroeScreen = () => {
     return <Navigate to='/'/>
   }
   
-  console.log(heroeID)
+ 
   const {id,
     superhero,
     alter_ego,
     first_appearance,
     characters,
     publisher} = heroe
-    console.log(id)
+    
     
     const handleReturn = () =>{
        
