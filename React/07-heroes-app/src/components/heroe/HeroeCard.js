@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
+const heroeImages = require.context('../../assets/',true) //de esta manera es como una importacion pues mediante el require.context se importa la carpeta y el true es para q busque en los subdirectorios, todo eso se guarda en la variable heroeImages
+
+
 export const HeroeCard = ({
     id,
     superhero,
@@ -19,7 +22,11 @@ export const HeroeCard = ({
 
                 <div className='col-4'>
                 
-                    <img src={`/assets/${id}.jpg`} className='card-img' alt={superhero}/>
+                    <img 
+                    //src={`/assets/${id}.jpg`} esta manera era por la ruta anterior
+                    src={heroeImages(`./${id}.jpg`)}
+                    className='card-img' 
+                    alt={superhero}/>
 
                 </div>
 
