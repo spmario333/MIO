@@ -1,26 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { startGoogleLogin, startLoginEmailPassword } from '../../action/auth';
+
+
 
 
 
 export const LoginScreen = () => {
+
+  const dispatch = useDispatch();
+
+
+  const [form, setForm] = useState({
+    email:'',
+    password:''
+  })
+  
+  const {email,password} = form
+  
+  const handleInputChange= ({target}) => {
+    setForm({
+      ...form,
+      [target.name]:target.value
+    })
+  }
+
+  const handleLogin = (e) =>{
+    e.preventDefault()
+    dispatch(startLoginEmailPassword(email, password)) //el dispatch como es en el useReducer se le pasa la accion y ejecuta q no es mas q pasarle directo el objeto con los valores objeto q seria la accion => action{type: login, payload:{uid,name}}
+
+  }
+
+  const handleGoogleLogin = () =>{
+    dispatch(startGoogleLogin())
+  }
+
   return (
     <>
         <h3 className='auth__title'>Login</h3>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <input
             type='text'
             placeholder='Email'
             name='email'
             className='auth__input'
             autoComplete='off'
+            value={email}
+            onChange={handleInputChange}
           />
           <input
             type='password'
             placeholder='Password'
             name='password'
             className='auth__input'
+            value={password}
+            onChange={handleInputChange}
           />
 
           <button 
@@ -31,7 +67,9 @@ export const LoginScreen = () => {
             Login
           </button>
           
-         <div className='auth__social-networks'>
+         <div 
+         onClick={handleGoogleLogin}
+         className='auth__social-networks'>
           <p>Login with social networks</p>
             <div 
               className="google-btn"
