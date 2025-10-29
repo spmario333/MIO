@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { startGoogleLogin, startLoginEmailPassword } from '../../action/auth';
-
+import validator from 'validator'
+import { setError } from '../../action/ui';
 
 
 
 
 export const LoginScreen = () => {
 
+  const {loading} = useSelector(state => state.ui) //selecciona las prop q se pasan en el providerq son los reducers q estan en el store 
+  
+
+  const {msgError} = useSelector(state=>state.ui)
+
   const dispatch = useDispatch();
 
 
   const [form, setForm] = useState({
-    email:'',
-    password:''
+    email:'spmario333@gmail.com',
+    password:'123456'
   })
   
   const {email,password} = form
@@ -28,6 +34,10 @@ export const LoginScreen = () => {
 
   const handleLogin = (e) =>{
     e.preventDefault()
+    if(!validator.isEmail(email)){
+      dispatch(setError('The value is not a email'))
+      return
+    }
     dispatch(startLoginEmailPassword(email, password)) //el dispatch como es en el useReducer se le pasa la accion y ejecuta q no es mas q pasarle directo el objeto con los valores objeto q seria la accion => action{type: login, payload:{uid,name}}
 
   }
@@ -40,7 +50,11 @@ export const LoginScreen = () => {
     <>
         <h3 className='auth__title'>Login</h3>
 
-        <form onSubmit={handleLogin}>
+        <form 
+          onSubmit={handleLogin}
+          className='animate__animated animate__fadeIn animate__faster'
+          >
+            
           <input
             type='text'
             placeholder='Email'
@@ -59,9 +73,14 @@ export const LoginScreen = () => {
             onChange={handleInputChange}
           />
 
+          {msgError && (
+          <div className='auth__alert-error'>{msgError}</div>
+        )}
+
           <button 
           className='btn btn-primary btn-block'
           type='submit'
+          disabled={loading}
           
           >
             Login

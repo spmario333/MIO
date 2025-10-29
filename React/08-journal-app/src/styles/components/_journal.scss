@@ -52,6 +52,7 @@
     border-radius: 4px;
     color: $dark-grey;
     display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
     overflow: hidden;
 }
@@ -73,6 +74,7 @@
 
 .journal__entry-content {
     font-size: 10px;
+
 }
 
 .journal__entry-date-box {
