@@ -43,7 +43,7 @@ app.use('/api/auth', require('./routes/auth'))
 
 //en este se usa la ruta del navegador q va contener lo q se haya exportado en la ruta q aparece a la derecha q es local 
 
-
+app.use('/api/events',require('./routes/events'))
 
 //Escuchar peticiones 
 app.listen(process.env.PORT, () => {

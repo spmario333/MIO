@@ -128,7 +128,7 @@ const rivalidarToken = async (req, res = response) => {
 
     const token = await generarJWT(uid, name)
 
-    res.json({
+    res.status(201).json({
         ok: true,
 
         token
