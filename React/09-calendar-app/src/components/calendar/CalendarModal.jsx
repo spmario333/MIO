@@ -8,7 +8,7 @@ import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 import { uiCloseModal } from '../../actions/ui';
-import { eventAddNew, eventClearActiveEvent, eventUpdated } from '../../actions/events';
+import {  eventClearActiveEvent, eventStartAddNew, startEventUpdated } from '../../actions/events';
 
 
 
@@ -110,18 +110,11 @@ export const CalendarModal = () => {
         }
         if (active) {
 
-          dispatch(eventUpdated(formValues))
+          dispatch(startEventUpdated(formValues))
           
         }else {
 
-          dispatch(eventAddNew({
-              ...formValues,
-              id: new Date().getTime(),
-              user: {
-                  _id: '123',
-                  name: 'Mario',
-              }
-          }))
+          dispatch(eventStartAddNew(formValues))
 
         }
 

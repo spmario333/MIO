@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import { Navbar } from '../ui/Navbar'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
@@ -7,7 +7,7 @@ import { CalendarEvent } from './CalendarEvent'
 import { CalendarModal } from './CalendarModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { uiOpenModal } from '../../actions/ui'
-import { eventClearActiveEvent, eventSetActive } from '../../actions/events'
+import { eventClearActiveEvent, eventSetActive, eventStartLoading } from '../../actions/events'
 import { AddNewFab } from '../ui/AddNewFab'
 import { DeleteEventFab } from '../ui/DeleteEventFab'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
@@ -36,52 +36,59 @@ export const CalendarScreen = () => {
 
 
   const dispatch = useDispatch()
-  const {events,active } = useSelector(state=>state.calendar)
-  
-  
-  const [lastView, setLastView] = useState(localStorage.getItem('lastView')|| 'month')
+  const { events, active } = useSelector(state => state.calendar)
+  const { uid } = useSelector(state => state.auth)
 
-  const onDoubleClick = (e) =>{
+  const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'month')
+
+  useEffect(() => {
+
+    dispatch(eventStartLoading())
+
+  }, [dispatch])
+
+
+  const onDoubleClick = (e) => {
     dispatch(uiOpenModal())
-    console.log('open')
   }
 
-  const onSelectEvent = (e) =>{
-    
+  const onSelectEvent = (e) => {
+
     dispatch(eventSetActive(e))
   }
-  const onViewChange = (e) =>{
+  const onViewChange = (e) => {
 
     setLastView(e)
-    localStorage.setItem('lastView',e) //esta funcionalidad esta guardada en una prop q el evento es guardar la vista q cambio por ejemplo si quieres ver el calendario por semana cambias a semana y el evento te devuelve en consola por ejemplo week,.... al guardar el localstorage sabemos cual fue la ultima vista
+    localStorage.setItem('lastView', e) //esta funcionalidad esta guardada en una prop q el evento es guardar la vista q cambio por ejemplo si quieres ver el calendario por semana cambias a semana y el evento te devuelve en consola por ejemplo week,.... al guardar el localstorage sabemos cual fue la ultima vista
   }
 
   const eventStyleGetter = (event, start, end, isSelected) => {
+
     const style = {
-      backroundColor : '#367CF7',
+      backgroundColor: (uid === event.user._id) ? '#367CF7' : '#3c3c4dff',
       borderRadius: '0px',
       opacity: 0.8,
       display: 'block',
       color: 'white'
     }
-  
-  
+
+
     return {
       style
     }
   }
 
-  const onSelectSlot = (e) =>{
+  const onSelectSlot = (e) => {
     dispatch(eventClearActiveEvent())
   }
 
- 
+
 
 
   return (
     <div className='calendar-screen'>
-        <Navbar/>
-        <Calendar 
+      <Navbar />
+      <Calendar
         localizer={localizer}
         events={events}
         startAccessor='start'
@@ -97,12 +104,12 @@ export const CalendarScreen = () => {
         components={{
           event: CalendarEvent
         }}
-        />
-        { (active)&& 
-        
-          <DeleteEventFab/>}
-        <AddNewFab/>
-        <CalendarModal/>
+      />
+      {(active) &&
+
+        <DeleteEventFab />}
+      <AddNewFab />
+      <CalendarModal />
     </div>
   )
 }
